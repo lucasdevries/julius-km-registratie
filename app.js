@@ -5,7 +5,7 @@
 const DEFAULT_CFG = {
   endpoint: "",
   token: "",
-  cars: [{ name: "Volvo V40 D2", plate: "0-XXX-00", fuel: "diesel", lastKm: 0 }],
+  cars: [{ name: "Mijn auto", plate: "0-XXX-00", fuel: "benzine", lastKm: 0 }],
   defaultCarIdx: 0,
   purposes: ["Woon-werk", "Congres", "Werkbezoek", "Overleg extern"],
 };

@@ -54,7 +54,7 @@ De app staat dan op `https://<gebruikersnaam>.github.io/kilometerregistratie/`
    - de web-app-URL uit stap 1,
    - het token,
    - je auto's, één per regel: `naam, kenteken, brandstof, huidige km-stand`,
-     met een `*` voor de standaardauto (bijv. `*Volvo V40 D2, 0-XXX-00, diesel, 123456`),
+     met een `*` voor de standaardauto (bijv. `*Volvo V40, 0-XXX-00, diesel, 123456`),
    - de vaste ritdoelen (één per regel; "Anders…" komt er altijd automatisch bij).
 4. Geef bij de eerste rit toestemming voor locatie.
 
