@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Julius KM">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Julius KM — ritregistratie</title>
+</head>
+<body>
+  <header>
+    <h1>Julius KM</h1>
+    <button id="btn-settings" class="icon-btn" aria-label="Instellingen">⚙︎</button>
+  </header>
+
+  <main>
+    <!-- Startscherm -->
+    <section id="screen-home">
+      <div id="home-status" class="card"></div>
+      <button id="btn-action" class="big-btn">Vertrek</button>
+      <button id="btn-cancel-trip" class="text-btn danger" hidden>Actieve rit annuleren</button>
+      <div id="outbox-notice" class="notice" hidden></div>
+    </section>
+
+    <!-- Rit-formulier (vertrek én aankomst) -->
+    <section id="screen-form" hidden>
+      <h2 id="form-title"></h2>
+
+      <div id="car-block" class="block">
+        <label>Auto</label>
+        <div id="car-chips" class="chips"></div>
+        <button id="btn-make-default" class="text-btn small" hidden>★ Maak dit de standaardauto</button>
+        <div id="new-car-form" class="new-car" hidden>
+          <input id="nc-name" type="text" placeholder="Naam (bijv. Volvo V40 D2)">
+          <input id="nc-plate" type="text" placeholder="Kenteken" autocapitalize="characters">
+          <input id="nc-fuel" type="text" placeholder="Brandstof (benzine/diesel/…)">
+          <input id="nc-km" type="number" inputmode="numeric" placeholder="Huidige km-stand">
+          <button id="btn-add-car" class="chip">Auto toevoegen</button>
+        </div>
+      </div>
+
+      <div class="block">
+        <label>Kilometerstand</label>
+        <div id="km-readout" class="km-readout">000000</div>
+        <div id="odometer" class="odometer"></div>
+        <div id="prive-hint" class="hint" hidden></div>
+        <div id="distance-hint" class="hint" hidden></div>
+      </div>
+
+      <div class="block">
+        <label>Locatie</label>
+        <div id="location-status" class="location">📍 locatie bepalen…</div>
+      </div>
+
+      <div id="purpose-block" class="block" hidden>
+        <label>Doel van de rit</label>
+        <div id="purpose-chips" class="chips"></div>
+        <input id="purpose-other" type="text" placeholder="Omschrijf het doel…" hidden>
+      </div>
+
+      <button id="btn-save" class="big-btn"></button>
+      <button id="btn-back" class="text-btn">Terug</button>
+    </section>
+
+    <!-- Instellingen -->
+    <section id="screen-settings" hidden>
+      <h2>Instellingen</h2>
+
+      <div class="block">
+        <label for="cfg-endpoint">Apps Script web-app URL</label>
+        <input id="cfg-endpoint" type="url" placeholder="https://script.google.com/macros/s/…/exec">
+      </div>
+
+      <div class="block">
+        <label for="cfg-token">Token (zelfde als in Code.gs)</label>
+        <input id="cfg-token" type="text" autocomplete="off">
+      </div>
+
+      <div class="block">
+        <label for="cfg-cars">Auto's — één per regel: <code>naam, kenteken, brandstof, laatste km</code> (standaardauto begint met <code>*</code>)</label>
+        <textarea id="cfg-cars" rows="3" spellcheck="false"></textarea>
+      </div>
+
+      <div class="block">
+        <label for="cfg-purposes">Ritdoelen — één per regel ("Anders…" wordt automatisch toegevoegd)</label>
+        <textarea id="cfg-purposes" rows="5" spellcheck="false"></textarea>
+      </div>
+
+      <button id="btn-save-settings" class="big-btn">Opslaan</button>
+      <button id="btn-settings-back" class="text-btn">Terug</button>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

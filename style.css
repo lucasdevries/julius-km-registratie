@@ -1,0 +1,248 @@
+:root {
+  --bg: #0c1118;
+  --card: #151c27;
+  --card-border: rgba(148, 163, 184, 0.12);
+  --text: #eef2f7;
+  --muted: #8a97a8;
+  --accent: #4f9df7;
+  --accent-deep: #2563eb;
+  --band: #f0b429;          /* amber accentlijn van de teller */
+  --green: #10b981;
+  --green-deep: #059669;
+  --red: #f87171;
+  --wheel-item: 46px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+[hidden] { display: none !important; }
+
+html {
+  background: var(--bg);
+}
+
+body {
+  background:
+    radial-gradient(120% 60% at 50% -10%, #182334 0%, transparent 60%),
+    var(--bg);
+  color: var(--text);
+  font-family: -apple-system, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  max-width: 480px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: env(safe-area-inset-top) 18px calc(28px + env(safe-area-inset-bottom));
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0 14px;
+}
+
+h1 { font-size: 21px; letter-spacing: -0.01em; }
+h2 { font-size: 18px; margin-bottom: 18px; color: var(--text); }
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 22px;
+  padding: 4px 8px;
+}
+
+main section { padding-top: 4px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 22px;
+  line-height: 1.6;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+.card .big { font-size: 30px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.card .sub { color: var(--muted); font-size: 14px; }
+.card .sub b { color: var(--text); font-variant-numeric: tabular-nums; }
+
+.big-btn {
+  display: block;
+  width: 100%;
+  padding: 17px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-deep));
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin: 10px 0 4px;
+}
+.big-btn:active { transform: translateY(1px); }
+.big-btn:disabled { opacity: 0.4; }
+.big-btn.arrive {
+  background: linear-gradient(180deg, var(--green), var(--green-deep));
+  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.text-btn {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 15px;
+  padding: 14px;
+}
+.text-btn.danger { color: var(--red); }
+.text-btn.small { font-size: 14px; padding: 10px 2px; text-align: left; width: auto; color: var(--accent); }
+
+.notice {
+  color: var(--band);
+  font-size: 14px;
+  text-align: center;
+  padding: 8px;
+}
+
+.block { margin-bottom: 24px; }
+
+.block > label {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.chip {
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 15px;
+}
+.chip.selected {
+  border-color: transparent;
+  background: linear-gradient(180deg, var(--accent), var(--accent-deep));
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ---- kilometerteller ---- */
+
+.km-readout {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 12px;
+}
+.km-readout b { color: var(--text); font-size: 18px; }
+
+.odometer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 12px 14px;
+  background: #05080d;
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  box-shadow: inset 0 4px 16px rgba(0, 0, 0, 0.8), 0 1px 0 rgba(148, 163, 184, 0.08);
+}
+
+/* amber leeslijn over de middelste rij, binnen de bak */
+.odometer::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  right: 7px;
+  top: calc(50% - var(--wheel-item) / 2);
+  height: var(--wheel-item);
+  background: rgba(240, 180, 41, 0.07);
+  border-top: 1.5px solid rgba(240, 180, 41, 0.6);
+  border-bottom: 1.5px solid rgba(240, 180, 41, 0.6);
+  border-radius: 6px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.wheel {
+  width: 42px;
+  height: calc(var(--wheel-item) * 3);
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  border-radius: 7px;
+  /* drum-effect: cilinder die bovenaan en onderaan wegdraait */
+  background: linear-gradient(180deg,
+    #05070b 0%, #1a2230 22%, #2b3547 50%, #1a2230 78%, #05070b 100%);
+  border: 1px solid rgba(148, 163, 184, 0.10);
+  mask-image: linear-gradient(180deg, transparent 2%, #000 32%, #000 68%, transparent 98%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 2%, #000 32%, #000 68%, transparent 98%);
+}
+.wheel::-webkit-scrollbar { display: none; }
+
+/* extra ruimte tussen duizendtallen en honderdtallen */
+.wheel.thousands-gap { margin-right: 9px; }
+
+.wheel div {
+  height: var(--wheel-item);
+  scroll-snap-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: #f8fafc;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+.wheel .pad { scroll-snap-align: none; }
+
+.hint { font-size: 14px; margin-top: 12px; text-align: center; color: var(--muted); }
+.hint.warn { color: var(--band); }
+.hint.ok { color: var(--green); }
+
+.location {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 13px 15px;
+  font-size: 15px;
+  line-height: 1.45;
+  min-height: 46px;
+  color: var(--text);
+}
+
+input[type="text"], input[type="url"], input[type="number"], textarea {
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  color: var(--text);
+  font-size: 16px;
+  padding: 13px;
+  font-family: inherit;
+}
+input:focus, textarea:focus { outline: none; border-color: var(--accent); }
+::placeholder { color: #5b6878; }
+
+#purpose-other { margin-top: 10px; }
+
+.new-car { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+.new-car .chip { align-self: flex-start; }
+
+code { font-size: 12px; color: var(--accent); text-transform: none; letter-spacing: 0; }
