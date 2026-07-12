@@ -77,11 +77,14 @@ De app staat dan op `https://<gebruikersnaam>.github.io/julius-km-registratie/`.
 ## Jaaroverzicht voor de belasting
 
 Elk jaar krijgt automatisch een eigen tabblad met de kolommen: datum, vertrek- en
-aankomsttijd, auto, brandstof, km-stand vertrek/aankomst, zakelijke km, privé km
-sinds vorige rit, beide locaties en het doel. Onderaan zelf toevoegen (of via
-**Bestand → Downloaden → xlsx** exporteren):
+aankomsttijd, auto, kenteken, brandstof, km-stand vertrek/aankomst, zakelijke km,
+privé km sinds vorige rit, beide locaties en het doel. Nieuwe ritten worden altijd
+onderaan toegevoegd — zet totaalformules daarom rechts náást de tabel (niet
+eronder), bijvoorbeeld:
 
 ```
-Totaal zakelijk:  =SUM(H2:H)
-Aftrek (×€0,23):  =SUM(H2:H)*0,23
+O1: Totaal zakelijk     P1: =SUM(I2:I)
+O2: Aftrek €0,23/km     P2: =SUM(I2:I)*0,23
 ```
+
+Exporteren voor de belasting: **Bestand → Downloaden → Microsoft Excel (.xlsx)**.
