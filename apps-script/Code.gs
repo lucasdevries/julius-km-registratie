@@ -1,5 +1,5 @@
 /**
- * Julius KM — Google Apps Script backend.
+ * Kilometerregistratie — Google Apps Script backend.
  *
  * Installatie: zie README.md in de repo. Kort:
  *  1. Maak een nieuw Google Sheet.

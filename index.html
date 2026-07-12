@@ -6,15 +6,15 @@
   <meta name="theme-color" content="#0f172a">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Julius KM">
+  <meta name="apple-mobile-web-app-title" content="KM registratie">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="icons/icon-180.png">
   <link rel="stylesheet" href="style.css">
-  <title>Julius KM — ritregistratie</title>
+  <title>Kilometerregistratie</title>
 </head>
 <body>
   <header>
-    <h1>Julius KM</h1>
+    <h1>Kilometerregistratie</h1>
     <button id="btn-settings" class="icon-btn" aria-label="Instellingen">⚙︎</button>
   </header>
 
@@ -25,6 +25,7 @@
       <button id="btn-action" class="big-btn">Vertrek</button>
       <button id="btn-cancel-trip" class="text-btn danger" hidden>Actieve rit annuleren</button>
       <div id="outbox-notice" class="notice" hidden></div>
+      <div id="recent-trips" class="card" hidden></div>
     </section>
 
     <!-- Rit-formulier (vertrek én aankomst) -->
@@ -80,7 +81,7 @@
             <li>Klik in het menu op <b>Extensies&nbsp;→ Apps&nbsp;Script</b>. Er opent een code-editor met een leeg voorbeeldscript — verwijder wat daar staat.</li>
             <li>Tik hieronder op <b>"Kopieer scriptcode"</b> en plak de code in de editor (Ctrl/Cmd+V).</li>
             <li>Bovenin de code staat <code>verander-dit-token</code>. Vervang dat door een zelfbedacht wachtwoord en onthoud het.</li>
-            <li>Klik rechtsboven op <b>Implementeren&nbsp;→ Nieuwe implementatie</b>. Klik op het tandwieltje, kies <b>Web-app</b> en stel in: <i>Uitvoeren als</i>: <b>Ik</b>, <i>Wie heeft toegang</i>: <b>Iedereen</b>. Klik op <b>Implementeren</b>.</li>
+            <li>Klik rechtsboven op <b>Implementeren&nbsp;→ Nieuwe implementatie</b> (heet in het Engels <b>Deploy&nbsp;→ New deployment</b>). Klik op het tandwieltje, kies <b>Web-app</b> en stel in: <i>Uitvoeren als</i> (<i>Execute as</i>): <b>Ik / Me</b>, <i>Wie heeft toegang</i> (<i>Who has access</i>): <b>Iedereen / Anyone</b>. Klik op <b>Implementeren / Deploy</b>.</li>
             <li>Google vraagt om toestemming. Zie je "Google heeft deze app niet geverifieerd", klik dan op <b>Geavanceerd → Ga naar (naam) (onveilig)</b> — het is je eigen script, dus dat is veilig.</li>
             <li>Kopieer de <b>web-app-URL</b> (eindigt op <code>/exec</code>) en plak hem hieronder in het eerste veld. Vul bij Token je zelfbedachte wachtwoord in.</li>
             <li>Vul je auto in met de huidige kilometerstand, en tik op <b>Opslaan</b>. Registreer een proefritje van 1 km — als die als rij in je Sheet verschijnt, werkt alles!</li>
@@ -112,6 +113,9 @@
 
       <button id="btn-save-settings" class="big-btn">Opslaan</button>
       <button id="btn-settings-back" class="text-btn">Terug</button>
+      <div class="bmc">
+        <a href="https://www.buymeacoffee.com/lucasdevries" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me a Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+      </div>
     </section>
   </main>
 

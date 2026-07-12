@@ -1,4 +1,4 @@
-# Julius KM — zakelijke kilometerregistratie
+# Kilometerregistratie
 
 Een lichtgewicht PWA voor het registreren van zakelijke ritten met de privéauto
 (€/km-aftrek). Twee handelingen per rit:
@@ -35,13 +35,14 @@ gesignaleerd en in een aparte kolom vastgelegd, zodat de administratie sluitend 
 De app is een statische pagina; GitHub Pages is gratis en voldoende:
 
 ```sh
-git init && git add -A && git commit -m "Julius KM"
-gh repo create julius-km-registratie --private --source=. --push
-gh api repos/{owner}/julius-km-registratie/pages -X POST \
+git init && git add -A && git commit -m "Kilometerregistratie"
+gh repo create kilometerregistratie --public --source=. --push
+gh api repos/{owner}/kilometerregistratie/pages -X POST \
   -f 'source[branch]=main' -f 'source[path]=/'
 ```
 
-De app staat dan op `https://<gebruikersnaam>.github.io/julius-km-registratie/`.
+De app staat dan op `https://<gebruikersnaam>.github.io/kilometerregistratie/`
+(deze instantie: https://lucasdevries.github.io/kilometerregistratie/).
 (HTTPS is verplicht voor GPS; lokaal testen kan via `python3 -m http.server` op
 `http://localhost:8000`.)
 

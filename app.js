@@ -23,6 +23,10 @@ const saveJSON = (key, v) => localStorage.setItem(key, JSON.stringify(v));
 let cfg = { ...DEFAULT_CFG, ...loadJSON("cfg", {}) };
 let activeTrip = loadJSON("activeTrip", null);
 let outbox = loadJSON("outbox", []);
+let recentTrips = loadJSON("recentTrips", []);
+
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) =>
+  ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
 /* ---------- elementen ---------- */
 
@@ -260,6 +264,10 @@ function saveForm() {
     outbox.push(trip);
     saveJSON("outbox", outbox);
 
+    recentTrips.unshift({ date: trip.endTime, distance: trip.distance, purpose: trip.purpose, car: trip.car });
+    recentTrips = recentTrips.slice(0, 3);
+    saveJSON("recentTrips", recentTrips);
+
     const car = cfg.cars.find((c) => c.name === trip.car);
     if (car) { car.lastKm = km; saveJSON("cfg", cfg); }
     activeTrip = null;
@@ -333,6 +341,17 @@ function renderHome() {
     actionBtn.textContent = "Nieuwe rit";
     actionBtn.classList.remove("arrive");
     cancelBtn.hidden = true;
+  }
+
+  const recent = $("recent-trips");
+  recent.hidden = recentTrips.length === 0;
+  if (recentTrips.length > 0) {
+    recent.innerHTML = `<div class="sub">Laatste ritten</div>` + recentTrips.map((t) => {
+      const d = new Date(t.date).toLocaleDateString("nl-NL", { day: "2-digit", month: "2-digit" });
+      return `<div class="trip-row"><span class="trip-date">${d}</span>` +
+        `<span class="trip-km"><b>${t.distance}</b> km</span>` +
+        `<span class="trip-purpose">${esc(t.purpose)}</span></div>`;
+    }).join("");
   }
 
   const notice = $("outbox-notice");

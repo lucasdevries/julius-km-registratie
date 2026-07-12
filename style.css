@@ -247,6 +247,31 @@ input:focus, textarea:focus { outline: none; border-color: var(--accent); }
 
 code { font-size: 12px; color: var(--accent); text-transform: none; letter-spacing: 0; }
 
+.trip-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 8px 0 2px;
+  font-size: 15px;
+  border-top: 1px solid var(--card-border);
+  margin-top: 8px;
+}
+.trip-row:first-of-type { border-top: none; margin-top: 4px; }
+.trip-date { color: var(--muted); font-variant-numeric: tabular-nums; }
+.trip-km { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.trip-km b { color: var(--text); }
+.trip-purpose {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: right;
+  color: var(--muted);
+}
+
+.bmc { text-align: center; margin-top: 28px; padding-bottom: 8px; }
+
 .help {
   background: var(--card);
   border: 1px solid var(--card-border);
