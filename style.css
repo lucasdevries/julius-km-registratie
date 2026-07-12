@@ -246,3 +246,31 @@ input:focus, textarea:focus { outline: none; border-color: var(--accent); }
 .new-car .chip { align-self: flex-start; }
 
 code { font-size: 12px; color: var(--accent); text-transform: none; letter-spacing: 0; }
+
+.help {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  margin-bottom: 24px;
+}
+.help summary {
+  padding: 15px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.help summary::-webkit-details-marker { display: none; }
+.help[open] summary { border-bottom: 1px solid var(--card-border); }
+.help-body {
+  padding: 14px 18px 18px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+.help-body b { color: var(--text); }
+.help-body code { font-size: 13px; }
+.help-body p { margin-bottom: 10px; }
+.help-body ol { padding-left: 20px; margin-bottom: 12px; }
+.help-body li { margin-bottom: 8px; }
+.help-body .chip { margin-top: 4px; }

@@ -57,6 +57,13 @@ De app staat dan op `https://<gebruikersnaam>.github.io/julius-km-registratie/`.
    - de vaste ritdoelen (één per regel; "Anders…" komt er altijd automatisch bij).
 4. Geef bij de eerste rit toestemming voor locatie.
 
+## Delen met vrienden
+
+Stuur ze gewoon de app-URL. Iedereen koppelt zijn eigen Google Sheet: in de app
+onder ⚙︎ staat een stap-voor-stap-uitleg ("Zo koppel je je eigen Google Sheet")
+inclusief een knop die de benodigde scriptcode naar het klembord kopieert.
+Niemand hoeft hiervoor naar GitHub of deze README.
+
 ## Hoe het werkt
 
 - **Auto's**: de standaardauto (★) staat bij vertrek voorgeselecteerd. Op het

@@ -71,6 +71,25 @@
     <section id="screen-settings" hidden>
       <h2>Instellingen</h2>
 
+      <details class="help">
+        <summary>📖 Zo koppel je je eigen Google Sheet</summary>
+        <div class="help-body">
+          <p>Deze app slaat je ritten op in je éigen Google Sheet. Dat koppel je één keer, in ongeveer 5 minuten:</p>
+          <ol>
+            <li>Ga op een computer naar <b>sheets.google.com</b> en maak een nieuw, leeg spreadsheet. Noem het bijvoorbeeld <i>Kilometerregistratie</i>.</li>
+            <li>Klik in het menu op <b>Extensies&nbsp;→ Apps&nbsp;Script</b>. Er opent een code-editor met een leeg voorbeeldscript — verwijder wat daar staat.</li>
+            <li>Tik hieronder op <b>"Kopieer scriptcode"</b> en plak de code in de editor (Ctrl/Cmd+V).</li>
+            <li>Bovenin de code staat <code>verander-dit-token</code>. Vervang dat door een zelfbedacht wachtwoord en onthoud het.</li>
+            <li>Klik rechtsboven op <b>Implementeren&nbsp;→ Nieuwe implementatie</b>. Klik op het tandwieltje, kies <b>Web-app</b> en stel in: <i>Uitvoeren als</i>: <b>Ik</b>, <i>Wie heeft toegang</i>: <b>Iedereen</b>. Klik op <b>Implementeren</b>.</li>
+            <li>Google vraagt om toestemming. Zie je "Google heeft deze app niet geverifieerd", klik dan op <b>Geavanceerd → Ga naar (naam) (onveilig)</b> — het is je eigen script, dus dat is veilig.</li>
+            <li>Kopieer de <b>web-app-URL</b> (eindigt op <code>/exec</code>) en plak hem hieronder in het eerste veld. Vul bij Token je zelfbedachte wachtwoord in.</li>
+            <li>Vul je auto in met de huidige kilometerstand, en tik op <b>Opslaan</b>. Registreer een proefritje van 1 km — als die als rij in je Sheet verschijnt, werkt alles!</li>
+          </ol>
+          <p><b>Let op:</b> pas je later ooit de scriptcode aan, publiceer dan via <i>Implementeren → Implementaties beheren → potlood → Nieuwe versie</i>, anders blijft de oude versie draaien.</p>
+          <button id="btn-copy-script" class="chip">📋 Kopieer scriptcode</button>
+        </div>
+      </details>
+
       <div class="block">
         <label for="cfg-endpoint">Apps Script web-app URL</label>
         <input id="cfg-endpoint" type="url" placeholder="https://script.google.com/macros/s/…/exec">

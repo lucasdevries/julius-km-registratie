@@ -398,6 +398,17 @@ $("btn-back").onclick = () => show("home");
 $("btn-settings").onclick = openSettings;
 $("btn-save-settings").onclick = saveSettings;
 $("btn-settings-back").onclick = () => show("home");
+$("btn-copy-script").onclick = async () => {
+  const btn = $("btn-copy-script");
+  try {
+    const code = await (await fetch("apps-script/Code.gs")).text();
+    await navigator.clipboard.writeText(code);
+    btn.textContent = "✓ Gekopieerd — plak in Apps Script";
+  } catch {
+    // klembord niet beschikbaar: toon het bestand zelf, dan kan het handmatig
+    window.open("apps-script/Code.gs", "_blank");
+  }
+};
 $("btn-cancel-trip").onclick = () => {
   if (confirm("Actieve rit verwijderen? De vertrekgegevens gaan verloren.")) {
     activeTrip = null;
@@ -409,5 +420,6 @@ $("btn-cancel-trip").onclick = () => {
 renderHome();
 flushOutbox();
 syncLastKm();
+if (location.hash === "#instellingen") openSettings();
 
 if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js");
